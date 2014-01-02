@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Assemble Collections Demo</title>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <header class="post-header">
+        <h1>{{ this.page.data.title }}</h1>
+      </header>
+
+      <section class="posts-list">
+        {{!-- {{list posts}} --}}
+        {{#if this.page.data.listPosts }}
+
+          {{#withSort post 'data.posted'}}
+            {{#each this.pages}}
+            <h2><a href="{{replaceStr this.dirname 'dist' ''}}/">{{ this.data.title }}</a></h2>
+            <p>{{ this.data.posted }}</p>
+            {{/each}}
+          {{/withSort}}
+
+        {{/if}}
+      </section>
+    </div>
+
+  </body>
+</html>
